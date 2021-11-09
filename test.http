@@ -1,0 +1,127 @@
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwY2Q4ZDQ5ZGRkNzk0MzkwODFiYjZhMSIsIm5hbWUiOiJKaWduZXNoIEpvc2hpIiwiaWF0IjoxNjI1MTQ1MzAwLCJleHAiOjE2MjUxNDY1MDB9.sUuXWLmmqfLiwofeCaTBFljxZIblWBKMsZTzwRihnm8
+POST http://localhost:3000/api/v1/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "test@test.com",
+    "password":"test2021"
+}
+###
+
+POST http://localhost:3000/api/v1/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "test2@test.com",
+    "password":"jignesh*"
+}
+###
+
+GET http://localhost:3000/ HTTP/1.1
+###
+
+POST http://localhost:3000/api/v1/checkifuserexists HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "jignesh5@test.com"
+}
+###
+
+POST http://localhost:3000/api/v1/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName":"Jignesh",
+    "lastName":"Joshi",
+    "email": "jignesh@test.com",
+    "password":"myPassworD@2021"
+}
+###
+
+PUT http://localhost:3000/api/v1/update-user HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "jignesh@test.com",
+    "lastName": "SOME LAST NAME*****"
+}
+###
+
+//unauthorised request
+DELETE http://localhost:3000/api/v1/delete-user HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "jignesh@test.com"
+}
+###
+
+//authorised request
+DELETE http://localhost:3000/api/v1/delete-user HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwY2FjMzQzZmJjNDgzMWUwMGY0ZDkwNSIsIm5hbWUiOiJKaWduZXNoIEpvc2hpIiwiZW1haWwiOiJqaWduZXNoQHRlc3QuY29tIiwiaWF0IjoxNjIzOTAxMDAxLCJleHAiOjE2MjM5MDIyMDF9.5sBoyqc9NO8nPkXWfS7qOkw9Lr09VJcpleoymxb7dvg
+
+{    
+    "email": "jignesh@test.com"
+}
+###
+
+
+//create blog
+POST http://localhost:3000/api/v1/create-blog HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{    
+    "title": "Title #15",
+    "tags": "tags #15",
+    "body": "body #15"
+}
+###
+
+//update blog
+PUT http://localhost:3000/api/v1/update-blog HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{    
+    "blogid": "60cb0da46840702688cb4cde",
+    "title": "Title #1 updated",
+    "tags": "tags #1 updated",
+    "body": "body #1 updated"
+}
+###
+
+//delete blog
+DELETE http://localhost:3000/api/v1/delete-blog HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{    
+    "blogid": "60cb0da46840702688cb4cde"    
+}
+###
+
+GET http://localhost:3000/api/v1/blog/60cb0da46840702688cb4cde HTTP/1.1
+
+###
+
+POST http://localhost:3000/api/v1/get-blogs HTTP/1.1
+Content-Type: application/json
+//Authorization: Bearer {{token}}
+
+{    
+    "blogids": [],
+    "pagenum": 1,
+    "numOfRecords": 10
+}
+###
+POST http://localhost:3000/api/v1/get-user-blogs
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "pagenum":1,
+    "numOfRecords": 10
+}
