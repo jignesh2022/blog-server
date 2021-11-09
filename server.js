@@ -11,15 +11,6 @@ var cors = require('cors');
 const fileUpload = require('express-fileupload');
 const _ = require('lodash'); 
 
-//https://www.digitalocean.com/community/tutorials/nodejs-jwt-expressjs
-//https://www.techomoro.com/how-to-set-up-authentication-and-authorization-in-express-using-jwt/
-//error handling
-//https://www.youtube.com/watch?v=UVAMha41dwo
-//https://tech-blog.maddyzone.com/node.js/add-update-delete-object-array-schema-mongoosemongodb
-//https://www.geeksforgeeks.org/mongodb-text-indexes/
-//https://docs.mongodb.com/manual/core/index-text/
-//https://www.bluleadz.com/blog/what-are-blog-tags-and-how-to-use-them
-//https://attacomsian.com/blog/uploading-files-nodejs-express
 
 dotenv.config();
 
